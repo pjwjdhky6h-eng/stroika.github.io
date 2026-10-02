@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#292a25">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Стройка">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<title>Стройка — рабочая версия v5</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f6f3;color:#20211e;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+button,input,textarea{font:inherit}.app{min-height:100vh;display:flex}.sidebar{width:220px;background:#292a25;color:#fff;padding:20px 12px;display:flex;flex-direction:column;gap:7px}.logo{font-weight:700;font-size:20px;padding:10px 12px 22px}.nav{padding:11px 12px;border-radius:9px}.nav.active{background:#45463f}.spacer{flex:1}.main{flex:1;max-width:1180px;width:100%;margin:auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}h1{font-size:30px;line-height:1.1;margin:0 0 5px}.sub{color:#888;font-size:14px}.btn{border:0;border-radius:9px;background:#292a25;color:#fff;padding:10px 15px;cursor:pointer}.btn.light{background:#eeeae3;color:#333}.btn.danger{background:#9b3e35}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:17px}.card{position:relative;background:#fff;cursor:pointer;border:1px solid #e4e1db;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.03)}.card img{display:block;width:100%;height:150px;object-fit:cover;background:#e8e6df}.cardbody{padding:15px;cursor:pointer}.cardtitle{font-weight:650;font-size:17px;margin-bottom:4px}.editcard{position:absolute;right:9px;top:9px;width:34px;height:34px;border:0;border-radius:9px;background:rgba(255,255,255,.92);cursor:pointer;font-size:18px}
+.back{border:0;background:none;padding:0;cursor:pointer;color:#555;margin-bottom:17px}.objecthead{display:flex;gap:17px;align-items:center;background:#fff;border:1px solid #e4e1db;border-radius:14px;padding:15px 17px;margin-bottom:16px}.cover{width:100px;height:76px;border-radius:9px;object-fit:cover;background:#e8e6df}.objecthead h1{font-size:25px}.headspacer{flex:1}
+.section{background:#fff;border:1px solid #e4e1db;border-radius:14px;margin-bottom:11px;overflow:hidden}.sectionhead{display:flex;align-items:center;gap:7px;padding:15px 16px;cursor:pointer}.chev{width:20px;color:#777;transition:.15s}.collapsed .chev{transform:rotate(-90deg)}.sectitle{font-size:16px;font-weight:650;flex:1}.iconbtn{width:32px;height:32px;border:0;background:transparent;border-radius:8px;cursor:pointer;color:#555;font-size:17px}.iconbtn:hover{background:#eee}.sectionbody{padding:2px 17px 17px 43px}.collapsed .sectionbody{display:none}
+.row{display:grid;grid-template-columns:175px 1fr;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid #eee}.row:last-child{border-bottom:0}.value{color:#353630;min-height:20px}.field{width:100%;border:1px solid #d8d6d0;border-radius:8px;padding:9px;background:#fff}.editing .value{display:none}.editform{display:none}.editing .editform{display:block}.editing .save-row{display:flex}.save-row{display:none;gap:8px;margin-top:10px}.file{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #eee}.file:last-child{border:0}.fileicon{width:33px;height:33px;border-radius:8px;background:#eeeae3;display:grid;place-items:center}.muted{color:#888}.note{padding:11px 13px;background:#faf9f6;border:1px solid #eee9e1;border-radius:9px;margin:4px 0}.addsection{border:1px dashed #c9c6be;background:#fff;border-radius:14px;padding:18px;text-align:center;color:#777;cursor:pointer}.empty{padding:8px 0;color:#999}.modalback{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal{width:min(520px,100%);background:#fff;border-radius:15px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.25)}.modal h2{margin:0 0 15px}.modalrow{margin:12px 0}.modalrow label{display:block;font-size:13px;color:#777;margin-bottom:5px}.modalactions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#292a25;color:white;padding:10px 15px;border-radius:9px;display:none}
+@media(max-width:760px){.sidebar{display:none}.main{padding:calc(14px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom))}.top{align-items:flex-start}.grid{grid-template-columns:1fr;gap:13px}.card img{height:clamp(155px,48vw,220px)}.editcard{width:42px;height:42px}.btn{min-height:44px;padding:11px 15px}.objecthead{padding:12px;gap:11px}.cover{width:82px;height:65px}.row{grid-template-columns:1fr;gap:4px;padding:11px 0}.field{min-height:44px}.sectionhead{min-height:52px}.iconbtn{width:40px;height:40px}.sectionbody{padding:2px 13px 15px 16px}.objecthead h1{font-size:22px}.modal{max-height:calc(100dvh - 28px);overflow:auto}.toast{bottom:calc(16px + env(safe-area-inset-bottom));max-width:calc(100vw - 28px);text-align:center}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar"><div class="logo">◫ Стройка</div><div class="nav active">⌂ Объекты</div><div class="spacer"></div><div class="nav">⚙ Настройки</div></aside>
+<main class="main" id="app"></main>
+</div>
+<div class="modalback" id="modal"><div class="modal"><h2>Редактировать объект</h2><div class="modalrow"><label>Название</label><input class="field" id="mname"></div><div class="modalrow"><label>Фотография объекта</label><input type="file" id="mphoto" accept="image/*"></div><div class="modalactions"><button class="btn light" onclick="closeModal()">Отмена</button><button class="btn" onclick="saveModal()">Сохранить</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const ph="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=80";
+let objects=JSON.parse(localStorage.getItem("stroika_v4_objects")||"null")||[
+{name:"Флора",image:ph,client:"Вислевская Светлана Алексеевна",phone:"+7 913 915 32 64",address:"Дачное шоссе 22/3",floor:"3",apt:"229",safe:"2229",parking:"Наземная",unload:"На улице, проезд только",comment:"",contacts:"Охрана (консьерж), УК",telegram:"",notes:""},
+{name:"Никитина 10 (урбан виллы)",image:ph,client:"",phone:"",address:"",floor:"",apt:"",safe:"",parking:"",unload:"",comment:"",contacts:"",telegram:"",notes:""},
+{name:"Европейский",image:ph,client:"",phone:"",address:"",floor:"",apt:"",safe:"",parking:"",unload:"",comment:"",contacts:"",telegram:"",notes:""}
+];
+let current=-1, modalIndex=-1, fileStore=JSON.parse(localStorage.getItem("stroika_v4_files")||"{}"), linkStore=JSON.parse(localStorage.getItem("stroika_v4_links")||"{}"), collapseStore=JSON.parse(localStorage.getItem("stroika_v4_collapse")||"{}");
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function attr(s){return esc(s)}
+function saveAll(){localStorage.setItem("stroika_v4_objects",JSON.stringify(objects));localStorage.setItem("stroika_v4_files",JSON.stringify(fileStore));localStorage.setItem("stroika_v4_links",JSON.stringify(linkStore));localStorage.setItem("stroika_v4_collapse",JSON.stringify(collapseStore))}
+function toast(t){const x=document.getElementById("toast");x.textContent=t;x.style.display="block";setTimeout(()=>x.style.display="none",1600)}
+function list(){
+current=-1;
+app.innerHTML=`<div class="top"><div><h1>Объекты</h1><div class="sub">Все объекты · ${objects.length}</div></div><button class="btn" onclick="newObj()">＋ Добавить объект</button></div><div class="grid">${objects.map((o,i)=>`<div class="card" onclick="openObj(${i})"><img src="${o.image||ph}" alt="${attr(o.name)}"><button class="editcard" title="Редактировать" onclick="event.stopPropagation();openModal(${i})">✎</button><div class="cardbody"><div class="cardtitle">${esc(o.name)}</div><div class="muted">${esc(o.address||"Адрес не указан")}</div></div></div>`).join("")}</div>`;
+}
+function newObj(){objects.push({name:"Новый объект",image:ph,client:"",phone:"",address:"",floor:"",apt:"",safe:"",parking:"",unload:"",comment:"",contacts:"",telegram:"",notes:""});saveAll();openModal(objects.length-1)}
+function openModal(i){modalIndex=i;document.getElementById("mname").value=objects[i].name;document.getElementById("mphoto").value="";document.getElementById("modal").style.display="flex"}
+function closeModal(){document.getElementById("modal").style.display="none"}
+function saveModal(){const o=objects[modalIndex];o.name=document.getElementById("mname").value.trim()||"Без названия";const f=document.getElementById("mphoto").files[0];if(f){const r=new FileReader();r.onload=()=>{o.image=r.result;saveAll();closeModal();list();toast("Объект сохранён")};r.readAsDataURL(f)}else{saveAll();closeModal();list();toast("Объект сохранён")}}
+function isCollapsed(id){return !!(collapseStore[current]&&collapseStore[current][id])}
+function section(id,title,icon,body,edit=true){return `<div class="section ${isCollapsed(id)?"collapsed":""}" id="sec_${id}"><div class="sectionhead" onclick="toggleSection('${id}')"><span class="chev">▾</span><span class="sectitle">${icon} ${title}</span>${edit?`<button class="iconbtn" title="Изменить" onclick="event.stopPropagation();toggleEdit('${id}')">✎</button>`:""}</div><div class="sectionbody">${body}</div></div>`}
+function row(id,label,val){return `<div class="row"><b>${label}</b><span class="value">${esc(val||"—")}</span><div class="editform"><input class="field" id="f_${id}" value="${attr(val)}"></div></div>`}
+function openObj(i){
+current=i;const o=objects[i];
+app.innerHTML=`<button class="back" onclick="list()">← Все объекты</button><div class="objecthead"><img class="cover" src="${o.image||ph}"><div><h1>${esc(o.name)}</h1><div class="sub">${esc(o.address||"Адрес не указан")}</div></div><div class="headspacer"></div></div>
+${section("client","Заказчик","👤",row("client","ФИО",o.client)+row("phone","Телефон",o.phone)+`<div class="save-row"><button class="btn small" onclick="saveSection('client',['client','phone'])">Сохранить</button></div>`)}
+${section("address","Адрес","⌖",row("address","Адрес",o.address)+row("floor","Этаж",o.floor)+row("apt","Квартира",o.apt)+row("safe","Код от сейфа",o.safe)+row("parking","Парковка",o.parking)+row("unload","Разгрузка",o.unload)+row("comment","Комментарии",o.comment)+`<div class="save-row"><button class="btn small" onclick="saveSection('address',['address','floor','apt','safe','parking','unload','comment'])">Сохранить</button></div>`)}
+${section("contacts","Контакты","☎",row("contacts","Контакты",o.contacts)+`<div class="save-row"><button class="btn small" onclick="saveSection('contacts',['contacts'])">Сохранить</button></div>`)}
+${section("project","Проект","▣",`<input type="file" id="projectInput" multiple><div class="actions"><button class="btn small" onclick="addFiles()">Добавить файлы</button><button class="btn light small" onclick="addLink()">＋ Ссылка</button></div><div id="projectList"></div>`)}
+${section("photo","Фото-поток","▧",`<div class="note">Фотографии объекта можно вести в отдельной Telegram-группе и открывать её из карточки объекта.</div>`+row("telegram","Telegram",o.telegram)+`<div class="save-row"><button class="btn small" onclick="saveSection('photo',['telegram'])">Сохранить</button></div>`)}
+${section("notes","Заметки","☷",`<div class="row"><b>Заметки</b><span class="value">${esc(o.notes||"—")}</span><div class="editform"><textarea class="field" id="f_notes">${esc(o.notes)}</textarea></div></div><div class="save-row"><button class="btn small" onclick="saveSection('notes',['notes'])">Сохранить</button></div>`)}
+<div class="addsection" onclick="addCustom()">＋ &nbsp; Добавить новый пункт</div>`;
+renderFiles();
+}
+function toggleSection(id){if(!collapseStore[current])collapseStore[current]={};collapseStore[current][id]=!collapseStore[current][id];saveAll();openObj(current)}
+function toggleEdit(id){document.getElementById("sec_"+id)?.classList.toggle("editing")}
+function saveSection(id,keys){keys.forEach(k=>{const e=document.getElementById("f_"+k);if(e)objects[current][k]=e.value});saveAll();openObj(current);toast("Изменения сохранены")}
+function addFiles(){const fs=[...document.getElementById("projectInput").files];if(!fileStore[current])fileStore[current]=[];fileStore[current].push(...fs.map(f=>({name:f.name,size:f.size})));saveAll();renderFiles();toast("Файлы добавлены")}
+function addLink(){const u=prompt("Вставьте ссылку на проект:");if(!u)return;if(!linkStore[current])linkStore[current]=[];linkStore[current].push(u);saveAll();renderFiles()}
+function renderFiles(){const el=document.getElementById("projectList");if(!el)return;const fs=fileStore[current]||[],ls=linkStore[current]||[];el.innerHTML=(fs.length?fs.map(f=>`<div class="file"><div class="fileicon">▣</div><div><b>${esc(f.name)}</b><div class="muted">${Math.max(1,Math.round(f.size/1024))} КБ</div></div></div>`).join(""):"<div class='empty'>Файлов пока нет</div>")+(ls.length?ls.map(u=>`<div class="file"><div class="fileicon">↗</div><div class="link">${esc(u)}</div></div>`).join(""):"")}
+function addCustom(){const n=prompt("Название нового пункта:");if(!n)return;toast("Пункт «"+n+"» добавлен как идея — сохранение пользовательских разделов добавим следующим шагом")}
+list();
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(err => console.warn('Не удалось включить offline-режим', err)));
+}
+</script>
+</body>
+</html>
